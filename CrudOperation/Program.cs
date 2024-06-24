@@ -1,3 +1,6 @@
+using CrudOperation.DBContext;
+using CrudOperation.Repositories;
+
 namespace CrudOperation
 {
     public class Program
@@ -8,6 +11,8 @@ namespace CrudOperation
 
             // Add services to the container.
             builder.Services.AddControllersWithViews();
+            builder.Services.AddTransient<DapperDbContext, DapperDbContext>();
+            builder.Services.AddTransient<IProductRepository, ProductRepository>();
 
             var app = builder.Build();
 
